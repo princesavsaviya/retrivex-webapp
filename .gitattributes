@@ -1,0 +1,2 @@
+retrivexwebapp/searcher/embeddings_output/embeddings_2.json filter=lfs diff=lfs merge=lfs -text
+retrivexwebapp/searcher/embeddings_output/faiss_index_2.index filter=lfs diff=lfs merge=lfs -text

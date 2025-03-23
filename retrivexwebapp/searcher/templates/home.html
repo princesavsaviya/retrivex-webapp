@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>RetriveX</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container text-center my-5">
+  <!-- Big Title -->
+  <h1 class="mb-4">RetriveX</h1>
+
+  <!-- Search Form -->
+  <form method="get" action="{% url 'search_view' %}">
+    <!-- Query Input -->
+    <div class="mb-3">
+      <input 
+        type="text" 
+        name="q" 
+        class="form-control" 
+        placeholder="Enter Query" 
+        required
+      >
+    </div>
+
+    <!-- Radio Buttons for Single Selection -->
+    <div class="form-check form-check-inline">
+        <input 
+        class="form-check-input" 
+        type="radio" 
+        name="index_type" 
+        value="sparse" 
+        id="sparseIndex" 
+        checked>
+        <label class="form-check-label" for="sparseIndex">Sparse Index</label>
+    </div>
+    
+    <div class="form-check form-check-inline">
+        <input 
+        class="form-check-input" 
+        type="radio" 
+        name="index_type" 
+        value="dense" 
+        id="denseIndex">
+        <label class="form-check-label" for="denseIndex">Dense Index</label>
+    </div>
+    
+
+    <!-- Submit Button -->
+    <div class="mt-3">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+  </form>
+</div>
+
+<!-- Optional: Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

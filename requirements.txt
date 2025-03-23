@@ -1,0 +1,12 @@
+--find-links https://download.pytorch.org/whl/cu118/torch_stable.html
+torch==2.3.0+cu118 
+torchaudio==2.3.0+cu118 
+torchvision==0.18.0+cu118
+transformers>=4.31.0
+faiss-cpu>=2.1.2
+faiss-gpu>=2.1.2
+numpy>=1.25.0
+matplotlib>=3.7.2
+tqdm>=4.65.0
+Django>=4.2
+elasticsearch>=8.8.0

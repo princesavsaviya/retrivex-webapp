@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ drug.drug_name }}</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom styles (optional) */
+    body {
+      background-color: #f8f9fa;
+    }
+    .medicine-title {
+      background: linear-gradient(135deg, #007bff 0%, #00bcd4 100%);
+      color: #fff;
+      padding: 2rem 1rem;
+      border-radius: 6px;
+    }
+    .medicine-title h1 {
+      margin: 0;
+      font-weight: 700;
+    }
+    .nav-tabs .nav-link.active {
+      font-weight: bold;
+      border-color: #007bff #007bff #fff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container my-4">
+  <!-- Medicine Title Section -->
+  <div class="medicine-title mb-4 text-center">
+    <h1>{{ drug.drug_name }}</h1>
+    <p class="mb-0">See all the details and usage instructions for this medicine below.</p>
+  </div>
+
+  <!-- Basic Info Row -->
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Basic Information</h5>
+          <p class="card-text">
+            <strong>Drug Details:</strong><br>
+            {{ drug.drug_details|linebreaks|default:"No details available." }}
+          </p>
+          <p class="card-text">
+            <strong>Product Introduction:</strong><br>
+            {{ drug.product_introduction|linebreaks|default:"No introduction available." }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav Tabs -->
+  <ul class="nav nav-tabs" id="medicineTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses" type="button" role="tab" aria-controls="uses" aria-selected="true">
+        Uses & Benefits
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="sideeffects-tab" data-bs-toggle="tab" data-bs-target="#sideeffects" type="button" role="tab" aria-controls="sideeffects" aria-selected="false">
+        Side Effects
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="howtouse-tab" data-bs-toggle="tab" data-bs-target="#howtouse" type="button" role="tab" aria-controls="howtouse" aria-selected="false">
+        How to Use & Work
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="safety-tab" data-bs-toggle="tab" data-bs-target="#safety" type="button" role="tab" aria-controls="safety" aria-selected="false">
+        Safety Advice
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="moreinfo-tab" data-bs-toggle="tab" data-bs-target="#moreinfo" type="button" role="tab" aria-controls="moreinfo" aria-selected="false">
+        More Info
+      </button>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content" id="medicineTabContent">
+    <!-- Uses & Benefits -->
+    <div class="tab-pane fade show active p-3" id="uses" role="tabpanel" aria-labelledby="uses-tab">
+      <h5>Uses and Benefits</h5>
+      <p>{{ drug.uses_and_benefits|linebreaks|default:"No uses or benefits available." }}</p>
+    </div>
+
+    <!-- Side Effects -->
+    <div class="tab-pane fade p-3" id="sideeffects" role="tabpanel" aria-labelledby="sideeffects-tab">
+      <h5>Side Effects</h5>
+      <p>{{ drug.side_effects|linebreaks|default:"No side effects information available." }}</p>
+    </div>
+
+    <!-- How to Use & How it Works -->
+    <div class="tab-pane fade p-3" id="howtouse" role="tabpanel" aria-labelledby="howtouse-tab">
+      <h5>How to Use</h5>
+      <p>{{ drug.how_to_use|linebreaks|default:"No usage instructions available." }}</p>
+      <hr>
+      <h5>How the Drug Works</h5>
+      <p>{{ drug.how_drug_works|linebreaks|default:"No mechanism of action available." }}</p>
+    </div>
+
+    <!-- Safety Advice -->
+    <div class="tab-pane fade p-3" id="safety" role="tabpanel" aria-labelledby="safety-tab">
+      <h5>Safety Advice</h5>
+      <p>{{ drug.safety_advice|linebreaks|default:"No safety advice available." }}</p>
+      <hr>
+      <h5>Missed Dose</h5>
+      <p>{{ drug.missed_dose|linebreaks|default:"No missed dose instructions available." }}</p>
+      <hr>
+      <h5>Expert Advice</h5>
+      <p>{{ drug.expert_advice|linebreaks|default:"No expert advice available." }}</p>
+    </div>
+
+    <!-- More Info (Fact Box, Drug Interactions, FAQs) -->
+    <div class="tab-pane fade p-3" id="moreinfo" role="tabpanel" aria-labelledby="moreinfo-tab">
+      <h5>Fact Box</h5>
+      <p>{{ drug.fact_box|linebreaks|default:"No fact box information available." }}</p>
+      <hr>
+      <h5>Drug Interaction</h5>
+      <p>{{ drug.drug_interaction|linebreaks|default:"No drug interaction information available." }}</p>
+      <hr>
+      <h5>FAQs</h5>
+      <p>{{ drug.faq|linebreaks|default:"No FAQs available." }}</p>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="mt-4">
+    <a href="{% url 'search_view' %}?q={{ query }}&index_type={{ index_type }}&page={{ page }}" class="btn btn-secondary">Back to Search</a>
+    {% if drug.url %}
+      <a href="{{ drug.url }}" target="_blank" class="btn btn-primary">View Source</a>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
