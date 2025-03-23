@@ -47,6 +47,10 @@ RETRIVEX WEBAPP
 
 2. **Elasticsearch Setup:**
 
+   Download Elasticsearch:
+      Visit the official Elasticsearch download page:
+      https://www.elastic.co/downloads/elasticsearch
+
    Ensure you have Elasticsearch installed and running. If you do not have Elasticsearch running, you can start it by executing the following file ::
 
    `elasticsearch-8.17.3-windows-x86_64\elasticsearch-8.17.3\bin\elasticsearch.bat`   
@@ -55,7 +59,7 @@ RETRIVEX WEBAPP
 
 
 
-3. **Java and Lucene Setup:**
+4. **Java and Lucene Setup:**
 
    Ensure you have Java installed. The Lucene scripts use the PyLucene package. Follow the PyLucene installation instructions as needed.
 
