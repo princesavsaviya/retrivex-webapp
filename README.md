@@ -9,7 +9,8 @@ This project implements a retrieval system for drug information. It includes thr
 - **Retriever_2** (`retriver_2.py`): Provides search functionality using the elasticsearch index.
 - **Embeded_search** (`embeded_search.py`): Provides search functionality using the BERT index.
 
-- **Note** We have include 150 json file for testing in Cleaned_Data_2 and before running webapp, you do not need to do indexing for both lucne and bert.
+- **Note** We have include 150 json file for testing in Cleaned_Data_2 and before running webapp, you do need to do indexing for Elasticsearch by running indexer_2.py and BERT indexing is already done but its only done on 5 json files.
+
 
 - **Note** You can use anyone of the indexer and retriever from Lucene and Elasticsearch, but make sure to changes the path and module if you make any changes. by default we uses Elasticsearch for parse index and BERT for dense index.
 
