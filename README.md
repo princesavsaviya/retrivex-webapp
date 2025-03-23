@@ -116,4 +116,4 @@ The app allows you to enter search queries that utilize the generated embeddings
 
 ## Contact
 
-For any questions or support, please contact Prince Savsaviya at [psavs001@ucr.edu].
+For any questions or support, please contact Prince Savsaviya at [princesavsaviya2023.learning@gmail.com].
